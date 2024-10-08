@@ -1,4 +1,3 @@
-// Variables
 let tasks = [];
 const taskList = document.getElementById('task-list');
 const themeToggle = document.getElementById('theme-toggle');
@@ -8,7 +7,6 @@ const inspirationQuote = document.getElementById('inspiration-quote');
 let h1 = document.getElementById("head");
 let p = document.getElementById("p")
 
-// Quotes array
 const quotes = [
     "Keep going, you're doing great!",
     "Every small step matters!",
@@ -16,7 +14,6 @@ const quotes = [
     "Success is the sum of small efforts!"
 ];
 
-// Load tasks from LocalStorage
 window.onload = function() {
     if (localStorage.getItem('tasks')) {
         tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -25,7 +22,6 @@ window.onload = function() {
     }
 };
 
-// Add new task
 document.getElementById('add-task').addEventListener('click', function() {
     const taskName = document.getElementById('task-name').value;
     const taskCategory = document.getElementById('task-category').value;
@@ -52,7 +48,6 @@ document.getElementById('add-task').addEventListener('click', function() {
     saveToLocalStorage();
 });
 
-// Update task list
 function updateTaskList() {
     taskList.innerHTML = '';
     tasks.forEach((task, index) => {
@@ -92,7 +87,6 @@ function updateTaskList() {
     });
 }
 
-// Complete a task
 function completeTask(index) {
     tasks[index].completed = true;
     updateTaskList();
@@ -101,7 +95,6 @@ function completeTask(index) {
     displayQuote();
 }
 
-// Edit a task
 function editTask(index) {
     const newTaskName = prompt("Edit task name:", tasks[index].name);
     if (newTaskName) {
@@ -111,7 +104,6 @@ function editTask(index) {
     }
 }
 
-// Add subtask
 function addSubtask(index) {
     const subtaskName = prompt("Enter subtask name:");
     if (subtaskName) {
@@ -121,12 +113,10 @@ function addSubtask(index) {
     }
 }
 
-// Save tasks to LocalStorage
 function saveToLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Update progress
 function updateProgress() {
     const completedTasks = tasks.filter(task => task.completed).length;
     const progress = tasks.length ? Math.round((completedTasks / tasks.length) * 100) : 0;
@@ -134,7 +124,6 @@ function updateProgress() {
     taskProgressText.innerText = `${progress}%`;
 }
 
-// Update progress
 function updateProgress() {
     const completedTasks = tasks.filter(task => task.completed).length;
     const progress = tasks.length ? Math.round((completedTasks / tasks.length) * 100) : 0;
@@ -142,29 +131,24 @@ function updateProgress() {
     taskProgressBar.value = progress;
     taskProgressText.innerText = `${progress}%`;
 
-    // If no tasks are present, reset progress to 0%
     if (tasks.length === 0) {
         taskProgressBar.value = 0;
         taskProgressText.innerText = "0%";
     }
 }
 
-// Delete a task
 function deleteTask(index) {
     tasks.splice(index, 1);
     updateTaskList();
-    updateProgress(); // Update progress after deletion
+    updateProgress(); 
     saveToLocalStorage();
 }
 
-
-// Display quote
 function displayQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     inspirationQuote.innerText = quotes[randomIndex];
 }
 
-// Theme toggle
 themeToggle.addEventListener('click', function() {
     document.body.classList.toggle('dark-mode');
     themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';

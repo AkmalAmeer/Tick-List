@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive To-Do List</title>
+    <link rel="stylesheet" href="Todo.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1 id="head">To-Do List</h1>
+            <button id="theme-toggle">Light Mode</button>
+        </header>
+
+        <div class="task-input">
+            <input type="text" id="task-name" placeholder="Add new task">
+            <select id="task-category">
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="Urgent">Urgent</option>
+            </select>
+            <select id="task-priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <input type="date" id="task-deadline">
+        </div>
+
+        <div class="add-task-container">
+            <button id="add-task">Add Task</button>
+        </div>
+
+        <ul id="task-list"></ul>
+
+        <footer align="center">
+            <p id="inspiration-quote"></p>
+            <p id="para">Task Progress: <span id="task-progress">0%</span></p>
+            <progress id="task-progress-bar" value="0" max="100"></progress>
+        </footer>
+    </div>
+
+    <script src="Todo.js"></script>
+</body>
+
+</html>

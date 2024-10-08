@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+#theme-toggle {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.subtask-container {
+    background-color: white;
+    border-radius: 20px;
+    padding-left: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease-in-out;
+    width: 100%;
+    max-width: 500px;
+}
+
+.dark-mode .subtask-container {
+    background-color: grey;
+    color: white;
+}
+
+.subtask-container ul {
+    list-style-type: none;
+}
+
+.subtask-container li {
+    margin: 5px 0;
+    word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+    .subtask-container {
+        max-height: 100px;
+        max-width: 40%;
+    }
+}
+
+#theme-toggle.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.task-input {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+input,
+select,
+button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-task-container {
+    text-align: center;
+}
+
+#add-task {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+li.urgent {
+    background-color: #ffcccb;
+}
+
+li.work {
+    background-color: #cce5ff;
+}
+
+li.personal {
+    background-color: #d4edda;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+ul li ul {
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+button.delete-subtask {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 3px 5px;
+    margin-left: 10px;
+}
+
+button.complete,
+button.edit,
+button.delete,
+button.add-subtask {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button.delete {
+    background-color: #dc3545;
+}
+
+button.edit {
+    background-color: #ffc107;
+}
+
+button.add-subtask {
+    background-color: #17a2b8;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode li {
+    background-color: #444;
+    color: #f8f9fa;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode button {
+    background-color: #444;
+    color: white;
+}
+
+button:not(.dark-mode) {
+    padding: 5px 8px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    li {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    button {
+        padding: 5px 8px;
+    }
+}
+
+.dark-mode ul li {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.dark-mode #task-progress-bar,
+.dark-mode #task-progress {
+    background-color: #fff;
+    color: #333;
+}
+
+button.complete.dark-mode {
+    background-color: #28a745;
+}
+
+button.edit.dark-mode {
+    background-color: #ffb84d;
+}
+
+button.delete.dark-mode {
+    background-color: #ff4d4d;
+}
+
+button.add-subtask.dark-mode {
+    background-color: #17a2b8;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: black;
+}
+
+#theme-toggle.dark-mode {
+    background-color: #444;
+    color: black;
+}
